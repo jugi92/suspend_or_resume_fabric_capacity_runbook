@@ -7,7 +7,7 @@ Param(
 #$operation = "suspend" 
 #$operation = "resume"
 
-Connect-AzAccount
+Connect-AzAccount -Identity
 
 $tokenObject = Get-AzAccessToken -ResourceUrl "https://management.azure.com/"
 $token = $tokenObject.Token
