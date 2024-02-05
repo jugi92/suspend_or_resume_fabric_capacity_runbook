@@ -27,6 +27,7 @@ if os.getenv('IDENTITY_ENDPOINT'):
     response = requests.request("GET", endPoint, headers=headers, data=payload) 
     token = response.json()["access_token"]
 else:
+    # workbooks by default do not contain azure.identity, thus this would need additional setup
     from azure.identity import DefaultAzureCredential
     credential = DefaultAzureCredential()
     token = credential.get_token("https://management.azure.com/").token
